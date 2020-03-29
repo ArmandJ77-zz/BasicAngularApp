@@ -1,82 +1,78 @@
 <h1>Welcome!</h1>
+<h3>Demonstrate basic binding in angular</h3>
 
-<div class="play-container">
-  <h4>DEMO: One Way binding</h4>
+<div>
+  <h4>One Way binding</h4>
   <p>
-    You've Clicked <span (click)="countClick()">this</span>
+    You've Clicked
+    <button class="btn" type="button" (click)="countClick()">this</button>
     {{ clickCounter }} times.
   </p>
 </div>
 
-<div class="play-container">
-  <h4>DEMO: Two Way binding</h4>
-  <p>
+<div class="column-container">
+  <div class="base-container">
+    <h4>Two Way binding</h4>
     <input type="text" [(ngModel)]="name" />
-    <br />
-    <strong>You said: </strong> {{ name }}
-  </p>
-</div>
 
-<div class="play-container">
-  <h4>DEMO: Conditional Rendering based on property</h4>
-  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
-    <p>The click counter <strong>IS GREATER</strong> than 4.</p>
-  </ng-template>
+    <p><strong>You said: </strong> {{ name }}</p>
+  </div>
 
-  <ng-template #none>
-    <p>The click counter is <strong>not greater</strong> than 4</p>
-  </ng-template>
-</div>
+  <div class="base-container">
+    <h4>Conditional Rendering based on property</h4>
+    <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
+      <p>The click counter <strong>IS GREATER</strong> than 4.</p>
+    </ng-template>
 
-<div
-  class="play-container"
-  [style.background-color]="clickCounter > 4 ? 'lime' : 'lightgray'"
->
-  <h4>DEMO: Single inline style binding</h4>
-  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
-    <p>The click counter <strong>IS GREATER</strong> than 4.</p>
-  </ng-template>
+    <ng-template #none>
+      <p>The click counter is <strong>not greater</strong> than 4</p>
+    </ng-template>
+  </div>
 
-  <ng-template #none>
-    <p>The click counter is <strong>not greater</strong> than 4</p>
-  </ng-template>
-</div>
+  <div
+    class="base-container"
+    [style.background-color]="clickCounter > 3 ? 'lightgray' : '#eeeeee'"
+  >
+    <h4>Single inline style binding</h4>
+    <p>Set background-color to crimson if clickCounter > 4 else whitesmoke</p>
 
-<div
-  class="play-container"
-  [ngStyle]="{
-    'background-color': clickCounter > 4 ? 'yellow' : 'lightgray',
-    border: clickCounter > 4 ? '4px solid black' : none
-  }"
->
-  <h4>DEMO: Multple inline style binding</h4>
-  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
-    <p>The click counter <strong>IS GREATER</strong> than 4.</p>
-  </ng-template>
+    <ng-template #none>
+      <p>The click counter is <strong>not greater</strong> than 4</p>
+    </ng-template>
+  </div>
 
-  <ng-template #none>
-    <p>The click counter is <strong>not greater</strong> than 4</p>
-  </ng-template>
-</div>
+  <div
+    class="base-container"
+    [ngStyle]="{
+      'background-color': clickCounter > 4 ? '#dd0031' : '#eeeeee',
+      color: clickCounter > 4 ? 'white' : none
+    }"
+  >
+    <h4>Multple inline style binding</h4>
+    <p>Set the background-color to crimson and font to white</p>
+    <ng-template #none>
+      <p>The click counter is <strong>not greater</strong> than 4</p>
+    </ng-template>
+  </div>
 
-<div class="play-container" [class.active]="clickCounter > 4">
-  <h4>DEMO: Single CSS class binding</h4>
-  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
-    <p>The click counter <strong>IS GREATER</strong> than 4.</p>
-  </ng-template>
+  <div class="base-container" [class.active]="clickCounter > 2">
+    <h4>Single CSS class binding</h4>
+    <p>Apply the active class when clickcounter > 2</p>
 
-  <ng-template #none>
-    <p>The click counter is <strong>not greater</strong> than 4</p>
-  </ng-template>
-</div>
+    <ng-template #none>
+      <p>The click counter is <strong>not greater</strong> than 4</p>
+    </ng-template>
+  </div>
 
-<div class="play-container" [ngClass]="setClasses()">
-  <h4>DEMO: Multi CSS class binding</h4>
-  <ng-template [ngIf]="clickCounter > 4" [ngIfElse]="none">
-    <p>The click counter <strong>IS GREATER</strong> than 4.</p>
-  </ng-template>
+  <div class="base-container" [ngClass]="setClasses()">
+    <h4>Multi CSS class binding</h4>
+    <p>
+      Toggle via function between active and noActive class when clickCounter >
+      5
+    </p>
 
-  <ng-template #none>
-    <p>The click counter is <strong>not greater</strong> than 4</p>
-  </ng-template>
+    <ng-template #none>
+      <p>The click counter is <strong>not greater</strong> than 4</p>
+    </ng-template>
+  </div>
 </div>
