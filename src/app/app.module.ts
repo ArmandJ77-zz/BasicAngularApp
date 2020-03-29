@@ -7,9 +7,10 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ListItemComponent } from './list-item/list-item.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ListComponent],
+  declarations: [AppComponent, HomeComponent, ListComponent, ListItemComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
